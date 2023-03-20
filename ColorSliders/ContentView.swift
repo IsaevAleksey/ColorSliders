@@ -13,10 +13,15 @@ struct ContentView: View {
     @State private var green = Double.random(in: 0...255).rounded()
     @State private var blue = Double.random(in: 0...255).rounded()
     
+    @FocusState private var keyboard: Bool
+    
     var body: some View {
         ZStack {
             Color(.systemCyan)
                 .ignoresSafeArea()
+                .onTapGesture {
+                    keyboard = false
+                }
             VStack {
                 ColorView(red: red, green: green, blue: blue)
                 VStack {
@@ -24,15 +29,18 @@ struct ContentView: View {
                     SliderView(value: $green, color: .blue)
                     SliderView(value: $blue, color: .green)
                 }
+                .focused($keyboard)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            keyboard = false
+                        }
+                    }
+                }
                 Spacer()
             }
             .padding()
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button("Done") {}
-                }
-            }
         }
     }
 }

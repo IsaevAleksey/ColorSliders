@@ -57,8 +57,8 @@
 			children = (
 				93D2062B29C2329400BFC363 /* ColorSlidersApp.swift */,
 				93D2062D29C2329400BFC363 /* ContentView.swift */,
-				93D2063F29C24D7000BFC363 /* ColorView.swift */,
 				93D2063B29C234F300BFC363 /* SliderView.swift */,
+				93D2063F29C24D7000BFC363 /* ColorView.swift */,
 				93D2062F29C2329600BFC363 /* Assets.xcassets */,
 				93D2063129C2329600BFC363 /* Preview Content */,
 			);

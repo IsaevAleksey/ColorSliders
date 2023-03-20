@@ -18,6 +18,9 @@ struct SliderView: View {
             Text(value.formatted())
             Slider(value: $value, in: 0...255, step: 1)
                 .accentColor(color)
+                .onChange(of: value) { newValue in
+                    text = newValue.formatted()
+                }
             TextFieldView(value: $value, text: $text)
         }
         .onAppear(){
